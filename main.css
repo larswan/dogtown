@@ -1,0 +1,21 @@
+.body {
+    background-color: lightblue
+}
+
+/* .zoom {
+    size-adjust: 10%;
+} */
+
+
+.card {
+    transition: transform .2s;
+}
+
+.zoom {
+    transition: transform .2s;
+    transform: scale(1.1);
+}
+
+h2 {
+    color: white
+}
