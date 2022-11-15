@@ -58,7 +58,7 @@ let request = async () => {
 
             //adopt me button
             let adoptMeButton = document.createElement('img')
-            adoptMeButton.src = "https://i.imgur.com/T86xzBM.png"
+            adoptMeButton.src = "https://github.com/larswan/dogtown/blob/main/dog%20bone%20button.png?raw=true"
             adoptMeButton.classList.add("adoptMeButton")
 
             //bone click event
@@ -77,9 +77,6 @@ let request = async () => {
             // put adopt me button into a div
             let adoptMeButtonDiv = document.createElement("div")
             adoptMeButtonDiv.classList.add("adoptDiv")
-
-
-
 
             // Name generator
             let name = document.createElement('h2')
