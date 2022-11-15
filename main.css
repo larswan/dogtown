@@ -6,15 +6,13 @@
     size-adjust: 10%;
 } */
 
-
 .card {
     transition: transform .2s;
-
     height: 250px;
     width: 500px;
     background-color: white;
     margin: 50px;
-    padding: 0; 
+    padding: 0;
     border-radius: 20px;
     border: 7px solid white;
     display: flex;
@@ -24,11 +22,19 @@
     height: 250px;
     width: 250px;
     float: right;
+    /*added*/
 }
 
 .zoom {
     transition: transform .2s;
     transform: scale(1.1);
+}
+
+.dogImg {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px 0 0 20px
 }
 
 h2 {
@@ -53,4 +59,49 @@ img {
     height: 100%;
     object-fit: cover;
     border-radius: 20px 0px 0px 20px;
+}
+
+p {
+    margin: 0;
+    color: black;
+    text-align: right;
+}
+
+.dog-info {
+    width: 50%;
+    height: 100%;
+}
+
+
+
+/*added*/
+main {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.adoptMeButton {
+    width: 60%;
+    height: auto;
+
+}
+
+.shake {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.3s;
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    20% {
+        transform: translate(-1px, 1px) rotate(3deg);
+    }
+}
+
+.adoptDiv {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
