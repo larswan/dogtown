@@ -5,11 +5,15 @@
 }
 
 #banner {
-    height: 150px;
     width: 100%;
     background-color: #f5e595;
     text-align:center;
         
+}
+
+#headerImage{
+    height: 150px;
+    width: auto;
 }
 
 #formBanner{
@@ -23,10 +27,6 @@
     font-size: 13pt;
 }
 
-select{
-    background-color: hsl(42, 100%, 44%);
-    
-}
 
 .card {
     transition: transform .2s;

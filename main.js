@@ -12,6 +12,10 @@ const main = document.createElement('main')
 document.body.append(main)
 
 
+// function select () {
+//     ('select').selectric();
+// };
+
 function cardMaker(dog) {// card generating
     let card = document.createElement('div')
     card.classList.add('card')
@@ -170,6 +174,8 @@ let formRequest = async () => {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log("ok its not actually refreshing")
+    
+    // document.getElementById('div').remove()
     formRequest()
     })
 
