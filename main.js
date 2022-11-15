@@ -23,8 +23,6 @@ function cardMaker(dog) {// card generating
     // Text div generator
     let textDiv = document.createElement('div')
     textDiv.classList.add('dog-info')
-    // textDiv.style.float = "right"
-
 
     // dog gender
     let sex = document.createElement('p')
@@ -47,7 +45,6 @@ function cardMaker(dog) {// card generating
     // breed generator
     let breed = document.createElement('p')
     breed.innerText = dog.attributes.breedPrimary
-
 
     //image loading and style
     let img = document.createElement('img')
@@ -76,6 +73,10 @@ function cardMaker(dog) {// card generating
     let adoptMeButtonDiv = document.createElement("div")
     adoptMeButtonDiv.classList.add("adoptDiv")
 
+    form.addEventListener("submit", (e) =>{
+        e.preventDefault();
+        card.remove();
+    })
 
     // div.addEventListener(mouse)
     card.addEventListener('mouseover', () => {
@@ -147,12 +148,23 @@ let formRequest = async () => {
 
     // Page load card generator
     res.data.forEach((dog) => {
-        let ageMatch = (dog.attributes.ageGroup === form.ageForm.value)
-        let sexMatch = (dog.attributes.sex === form.sexForm.value)
+        let sexMatch;
+        let ageMatch;
+        if (form.sexForm.value == "undefined"){
+            sexMatch = true
+        }
+        else {
+            sexMatch = (dog.attributes.sex === form.sexForm.value)
+        } 
+        if (form.ageForm.value == "undefined"){
+            ageMatch = true
+        }
+        else {
+            ageMatch = (dog.attributes.ageGroup === form.ageForm.value)
+        } 
+        // let breedMatch = (dog.attributes.breedPrimary === form.breedForm.value)
         
-        let breedMatch = (dog.attributes.breedPrimary === form.breedForm.value)
-        
-        console.log(ageMatch, sexMatch)
+        console.log(ageMatch, dog.attributes.ageGroup, sexMatch, dog.attributes.sex)
 
         if (ageMatch && sexMatch && countWords(dog.attributes.name) < 3 && dog.attributes.pictureThumbnailUrl && dog.attributes.url && goodSourceCount < 5) {
             
@@ -170,12 +182,20 @@ let formRequest = async () => {
     console.log(`${goodSourceCount} dogs cards generated`)
 }
 
+
 // Form submit dog generator
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("ok its not actually refreshing")
+
     
+    // if(body.hasChildNodes()){
+    //     body.removeChild(body.firstChild)
+    //     console.log("ran")
+
+    // }
     // document.getElementById('div').remove()
+    console.log("ok its not actually refreshing")
+
     formRequest()
     })
 
