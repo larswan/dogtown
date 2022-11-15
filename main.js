@@ -21,65 +21,65 @@ let request = async () => {
     let res = await req.json()
     console.log(res.data)
 
+    const main = document.createElement('main')
+    document.body.append(main)
+
     res.data.forEach((dog) => {
-
-
         // card generating
-        let div = document.createElement('div')
-        div.classList.add('card')
-        div.style.height = '250px'
-        div.style.width = '500px'
-        div.style.backgroundColor = 'white'
-        div.style.margin = '50px'
-        div.style.borderRadius = '20px'
-        div.style.border = "7px solid white"
-        //div.style.display = "inline-grid"
+        let card = document.createElement('div')
+        card.classList.add('card')
 
         // Text div generator
         let textDiv = document.createElement('div')
-        textDiv.style.width = "250px"
-        textDiv.style.height = "250px"
-        textDiv.style.float = "right"
+        textDiv.classList.add('dog-info')
+        // textDiv.style.float = "right"
+
 
         //image loading and style
         let img = document.createElement('img')
         img.src = dog.attributes.pictureThumbnailUrl
-        img.style.width = "250px"
-        img.style.height = "250px"
-        img.style.objectFit = "cover"
-        img.style.borderRadius = '20px 0px 0px 20px'
+        img.classList.add("dogImg")
+
+        //adopt me button
+        let adoptMeButton = document.createElement('img')
+        adoptMeButton.src = "https://i.imgur.com/T86xzBM.png"
+        adoptMeButton.classList.add("adoptMeButton")
+
+        // adopt me button shakes when mouusehovered
+        adoptMeButton.addEventListener("mouseover", () => {
+            adoptMeButton.classList.add("shake")
+        }
+        )
+        adoptMeButton.addEventListener("mouseout", () => {
+            adoptMeButton.classList.remove("shake")
+        })
+
+        // put adopt me button into a div
+        let adoptMeButtonDiv = document.createElement("div")
+        adoptMeButtonDiv.classList.add("adoptDiv")
+
+
 
 
         // Name generator
         let name = document.createElement('h2')
         name.innerText = dog.attributes.name
-        name.style.float = "right"
-        name.style.textAlign = "right"
-        name.style.marginRight = "15px"
-        name.style.marginTop = "10px"
-        name.style.marginBottom = "0px"
 
         // age generator
         let age = document.createElement('p')
         if (dog.attributes.ageGroup) {
-            age.innerText = "\n" + dog.attributes.ageGroup
+            age.innerText = dog.attributes.ageGroup
         }
         else {
-            age.innerText = "\nold enough"
+            age.innerText = "old enough"
         }
-        age.style.float = "right"
-        age.style.marginRight = "0 auto"
-        age.style.textAlign = "right"
-        age.style.marginRight = "15px"
-        age.style.marginTop = "0px"
-        age.style.color = "black"
 
         // div.addEventListener(mouse)
-        div.addEventListener('mouseover', () => {
-            div.classList.add('zoom')
+        card.addEventListener('mouseover', () => {
+            card.classList.add('zoom')
         })
-        div.addEventListener('mouseout', () => {
-            div.classList.remove('zoom')
+        card.addEventListener('mouseout', () => {
+            card.classList.remove('zoom')
         })
 
 
@@ -88,10 +88,12 @@ let request = async () => {
         sex.innerText = dog.attributes.sex
 
         //append to the card
-        textDiv.append(name, age, sex)
-        div.append(img, textDiv)
-        document.body.append(div)
+        adoptMeButtonDiv.append(adoptMeButton)
+        textDiv.append(name, age, sex, adoptMeButtonDiv)
+        card.append(img, textDiv)
+        main.append(card)
     })
 
 }
+
 request()
