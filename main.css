@@ -8,14 +8,24 @@
     height: 150px;
     width: 100%;
     background-color: #f5e595;
-    margin: 0px;
-    box-sizing: border-box;
+    text-align:center;
         
 }
 
 #formBanner{
     background-color: azure;
-    Height: 50px
+    Height: 30px;
+    text-align: center;
+    padding: 25px;
+}
+
+#form{
+    font-size: 13pt;
+}
+
+select{
+    background-color: hsl(42, 100%, 44%);
+    
 }
 
 .card {
