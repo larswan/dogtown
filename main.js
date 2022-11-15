@@ -118,6 +118,24 @@ let request = async () => {
         else{
             ++noSourceCount;
         }
+
+        div.addEventListener('mouseover', () => {
+            div.classList.add('zoom')
+        })
+        div.addEventListener('mouseout', () => {
+            div.classList.remove('zoom')
+        })
+
+
+        // dog gender
+        let sex = document.createElement('p')
+        p.classList.add('sex')
+        sex.innerText = dog.attributes.sex
+
+        //append to the card
+        textDiv.append(name, age, sex)
+        div.append(img, textDiv)
+        document.body.append(div)
     })
     console.log(`${noSourceCount} dogs without thumbnails and URLs`)
     console.log(`${goodSourceCount} dogs cards generated`)
