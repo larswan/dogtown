@@ -27,52 +27,33 @@ let request = async () => {
         // card generating
         let div = document.createElement('div')
         div.classList.add('card')
-        div.style.height = '250px'
-        div.style.width = '500px'
-        div.style.backgroundColor = 'white'
-        div.style.margin = '50px'
-        div.style.borderRadius = '20px'
-        div.style.border = "7px solid white"
-        //div.style.display = "inline-grid"
+        
 
         // Text div generator
         let textDiv = document.createElement('div')
-        textDiv.style.width = "250px"
-        textDiv.style.height = "250px"
-        textDiv.style.float = "right"
-
+        div.classList.add('textDiv')
+        
+        
         //image loading and style
         let img = document.createElement('img')
         img.src = dog.attributes.pictureThumbnailUrl
-        img.style.width = "250px"
-        img.style.height = "250px"
-        img.style.objectFit = "cover"
-        img.style.borderRadius = '20px 0px 0px 20px'
-
+       
 
         // Name generator
         let name = document.createElement('h2')
         name.innerText = dog.attributes.name
-        name.style.float = "right"
-        name.style.textAlign = "right"
-        name.style.marginRight = "15px"
-        name.style.marginTop = "10px"
-        name.style.marginBottom = "0px"
+        
 
         // age generator
         let age = document.createElement('p')
+        p.classList.add('age')
         if (dog.attributes.ageGroup) {
             age.innerText = "\n" + dog.attributes.ageGroup
         }
         else {
             age.innerText = "\nold enough"
         }
-        age.style.float = "right"
-        age.style.marginRight = "0 auto"
-        age.style.textAlign = "right"
-        age.style.marginRight = "15px"
-        age.style.marginTop = "0px"
-        age.style.color = "black"
+        
 
         // div.addEventListener(mouse)
         div.addEventListener('mouseover', () => {
@@ -84,7 +65,8 @@ let request = async () => {
 
 
         // dog gender
-        let sex = document.createElement("p")
+        let sex = document.createElement('p')
+        p.classList.add('sex')
         sex.innerText = dog.attributes.sex
 
         //append to the card
