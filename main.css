@@ -21,8 +21,8 @@
 .textDiv {
     height: 250px;
     width: 250px;
-    float: right;
-    /*added*/
+    display: flex;
+
 }
 
 .zoom {
@@ -39,15 +39,11 @@
 
 h2 {
     color: black;
-    float: right;
+    object-fit: cover;
     text-align: right;
-    margin-right: 15px;
-    margin-top: 10px;
-    margin-bottom: 0px;
 }
 
 .age {
-    float: right;
     margin-right: 0 auto;
     text-align: right;
     margin-right: 15px;
