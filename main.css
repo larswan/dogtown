@@ -7,23 +7,23 @@
 #banner {
     width: 100%;
     background-color: #f5e595;
-    text-align:center;
-        
+    text-align: center;
+
 }
 
-#headerImage{
+#headerImage {
     height: 150px;
     width: auto;
 }
 
-#formBanner{
+#formBanner {
     background-color: azure;
     Height: 30px;
     text-align: center;
     padding: 25px;
 }
 
-#form{
+#form {
     font-size: 13pt;
 }
 
@@ -40,15 +40,11 @@
     display: flex;
 }
 
-.cardHide {
-    visibility: hidden;
-}
+
 
 .textDiv {
     height: 250px;
     width: 250px;
-    display: flex;
-
 }
 
 .zoom {
@@ -65,7 +61,6 @@
 
 h2 {
     color: black;
-    object-fit: cover;
     text-align: right;
 }
 
@@ -117,8 +112,12 @@ main {
 }
 
 @keyframes shake {
-    20% {
-        transform: translate(-1px, 1px) rotate(3deg);
+    50% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(-3deg);
     }
 }
 
@@ -126,8 +125,4 @@ main {
     width: 100%;
     text-align: center;
     margin-top: 20px;
-}
-
-.hidden {
-    visibility: hidden;
 }
