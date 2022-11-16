@@ -1,20 +1,17 @@
-// original URL 
 // const starterpack = "https://test1-api.rescuegroups.org/v5/public/animals/search/available/dogs/?limit=10&page=2&sort=+distance&fields[animals]=name&include=fosters"
 console.log("it up")
 
 const baseURL = "https://test1-api.rescuegroups.org/v5"
 const workingURL = "https://test1-api.rescuegroups.org/v5/public/animals/search/available/dogs/?limit=200&page=2&fields[dogs]=name&include=fosters"
 const form = document.getElementById('form')
-
 let dogList = document.createElement("ul")
 let body = document.querySelector("body")
 const main = document.createElement('main')
 document.body.append(main)
 
-
-// function select () {
-//     ('select').selectric();
-// };
+function countWords(str) {
+    return str.trim().split(/\s+/).length;
+}
 
 function cardMaker(dog) {// card generating
     let card = document.createElement('div')
@@ -78,7 +75,7 @@ function cardMaker(dog) {// card generating
         card.remove();
     })
 
-    // div.addEventListener(mouse)
+    // Card zoom effect
     card.addEventListener('mouseover', () => {
         card.classList.add('zoom')
     })
@@ -86,15 +83,11 @@ function cardMaker(dog) {// card generating
         card.classList.remove('zoom')
     })
 
-    //append to the card
+    //appending to cards, and cards to body
     adoptMeButtonDiv.append(adoptMeButton)
     textDiv.append(name, age, sex, breed, adoptMeButtonDiv)
     card.append(img, textDiv)
     main.append(card)
-}
-
-function countWords(str) {
-    return str.trim().split(/\s+/).length;
 }
 
 let initialRequest = async () => {
@@ -118,17 +111,16 @@ let initialRequest = async () => {
         if (countWords(dog.attributes.name) < 3 && dog.attributes.pictureThumbnailUrl && dog.attributes.url && goodSourceCount < 36) {
             
             cardMaker(dog)
-            
             ++goodSourceCount
         }
         else {
             ++noSourceCount;
         }
-
     })
     console.log(`${noSourceCount} dogs without thumbnails and URLs`)
     console.log(`${goodSourceCount} dogs cards generated`)
 }
+
 let formRequest = async () => {
     
     let goodSourceCount = 0
@@ -146,7 +138,7 @@ let formRequest = async () => {
     let res = await req.json()
     console.log(res.data)
 
-    // Page load card generator
+    // Form submit card generator
     res.data.forEach((dog) => {
         let sexMatch;
         let ageMatch;
@@ -162,12 +154,8 @@ let formRequest = async () => {
         else {
             ageMatch = (dog.attributes.ageGroup === form.ageForm.value)
         } 
-        // let breedMatch = (dog.attributes.breedPrimary === form.breedForm.value)
         
-        console.log(ageMatch, dog.attributes.ageGroup, sexMatch, dog.attributes.sex)
-
-        if (ageMatch && sexMatch && countWords(dog.attributes.name) < 3 && dog.attributes.pictureThumbnailUrl && dog.attributes.url && goodSourceCount < 5) {
-            
+        if (ageMatch && sexMatch && countWords(dog.attributes.name) < 3 && dog.attributes.pictureThumbnailUrl && dog.attributes.url && goodSourceCount < 36) {
             cardMaker(dog)
             ++goodSourceCount
         }
@@ -175,6 +163,7 @@ let formRequest = async () => {
             ++noSourceCount;
         }
     })
+
     if (goodSourceCount === 0){
         alert("That's ruff")
     }
@@ -182,22 +171,10 @@ let formRequest = async () => {
     console.log(`${goodSourceCount} dogs cards generated`)
 }
 
-
 // Form submit dog generator
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    
-    // if(body.hasChildNodes()){
-    //     body.removeChild(body.firstChild)
-    //     console.log("ran")
-
-    // }
-    // document.getElementById('div').remove()
-    console.log("ok its not actually refreshing")
-
     formRequest()
     })
 
 initialRequest()
-

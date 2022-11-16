@@ -27,7 +27,6 @@
     font-size: 13pt;
 }
 
-
 .card {
     transition: transform .2s;
     height: 250px;
@@ -39,8 +38,6 @@
     border: 7px solid white;
     display: flex;
 }
-
-
 
 .textDiv {
     height: 250px;
@@ -89,8 +86,6 @@ p {
     height: 100%;
 }
 
-
-
 /*added*/
 main {
     display: flex;
@@ -101,7 +96,6 @@ main {
 .adoptMeButton {
     width: 60%;
     height: auto;
-
 }
 
 .shake {
@@ -115,7 +109,6 @@ main {
     50% {
         transform: rotate(3deg);
     }
-
     100% {
         transform: rotate(-3deg);
     }
