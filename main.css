@@ -57,13 +57,15 @@
 }
 
 h2 {
-    color: black;
-    text-align: right;
+    color: rgb(63, 119, 193);
+    font-family: 'Rubik Bubbles', cursive;
+    font-size: 23pt;
+    text-align: center;
 }
 
 .age {
     margin-right: 0 auto;
-    text-align: right;
+    text-align: center;
     margin-right: 15px;
     margin: black;
 }
@@ -78,7 +80,7 @@ img {
 p {
     margin: 0;
     color: black;
-    text-align: right;
+    text-align: center;
 }
 
 .dog-info {
