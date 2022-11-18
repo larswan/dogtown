@@ -8,7 +8,12 @@
     width: 100%;
     background-color: #f5e595;
     text-align: center;
+}
 
+#combined-banner {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
 }
 
 #headerImage {
@@ -17,8 +22,9 @@
 }
 
 #formBanner {
-    background-color: azure;
-    Height: 30px;
+    background-color: rgb(249, 197, 205);
+    Height: 30
+    px;
     text-align: center;
     padding: 25px;
 }
@@ -39,9 +45,26 @@
     display: flex;
 }
 
-.textDiv {
-    height: 250px;
-    width: 250px;
+select {
+    height: 30px;
+    border: 0px;
+    background-color: white;
+}
+
+optgroup {
+    font-size: 80pt;
+}
+
+input {
+    height: 30px;
+    background-color: palevioletred;
+    color:white;
+    border: black 1px;
+}
+
+option{
+    font-size: 50pt;
+    text-align: center;
 }
 
 .zoom {
@@ -49,18 +72,41 @@
     transform: scale(1.1);
 }
 
-.dogImg {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px 0 0 20px
-}
-
 h2 {
     color: rgb(63, 119, 193);
     font-family: 'Rubik Bubbles', cursive;
     font-size: 23pt;
     text-align: center;
+}
+
+.dog-info {
+    width: 50%;
+    height: 200px;
+}
+
+.textDiv {
+    height: 100%;
+    width: 250px;
+    font-family: 'Spline Sans Mono', monospace;
+}
+
+.adoptMeButton {
+    width: 65%;
+    height: auto;
+}
+
+.adoptDiv {
+    width: 100%;
+    text-align: center;
+    text-align: center;
+    
+}
+
+.dogImg {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px 0 0 20px
 }
 
 .age {
@@ -81,24 +127,20 @@ p {
     margin: 0;
     color: black;
     text-align: center;
+    font-family: 'Mukta', sans-serif;
+    font-size: larger;
+    line-height: 110%;
 }
 
-.dog-info {
-    width: 50%;
-    height: 100%;
-}
 
-/*added*/
-main {
+#card-container{
     display: flex;
     flex-shrink: 0;
     flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 300px;
 }
 
-.adoptMeButton {
-    width: 60%;
-    height: auto;
-}
 
 .shake {
     /* Start the shake animation and make the animation last for 0.5 seconds */
@@ -114,10 +156,4 @@ main {
     100% {
         transform: rotate(-3deg);
     }
-}
-
-.adoptDiv {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
 }
